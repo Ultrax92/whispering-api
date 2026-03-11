@@ -4,6 +4,8 @@ import { getAll, getById, create, updateById, deleteById } from './store.js'
 const app = express()
 
 app.use(express.json())
+app.use(express.static('public'));
+app.set('view engine', 'ejs');
 
 app.get('/api/v1/whisper', async (req, res) => {
   const data = await getAll()
@@ -36,5 +38,10 @@ app.delete('/api/v1/whisper/:id', async (req, res) => {
   await deleteById(id)
   res.status(200).json({ message: 'Supprimé avec succès' })
 })
+
+app.get('/about', async (req, res) => {
+  const whispers = await getAll();
+  res.render('about', { whispers: whispers });
+});
 
 export { app }
