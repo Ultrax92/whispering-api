@@ -10,15 +10,24 @@
   "devDependencies": {
     "@babel/preset-env": "^7.29.0",
     "jest": "^29.7.0",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "standard": "^17.1.2",
+    "supertest": "^6.3.4"
   },
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "lint": "standard",
+    "lint:fix": "standard --fix"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  }
 }
