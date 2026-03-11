@@ -23,11 +23,34 @@
 
         <h2>What is Whispering?</h2>
         <p>Whispering is a microblogging platform that allows you to share your thoughts with the world and learn
-            Node.js on the way.</p>
+            Node.js on
+            the way.</p>
 
         <h2>Community live ⚡</h2>
         <p>Currently there are <%= whispers.length %> whispers available</p>
+
+        <button id="add-btn" class="block"
+            style="margin-bottom: 20px; padding: 10px; cursor: pointer; background-color: #343e8b; color: white; border: none; border-radius: 5px;">
+            Spread a whisper 🤫
+        </button>
+
+        <div style="width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 15px;">
+            <% whispers.forEach(function(whisper) { %>
+                <article>
+                    <p>
+                        <%= whisper.message %>
+                    </p>
+                    <div class="actions">
+                        <button class="edit-btn" data-id="<%= whisper.id %>"
+                            data-message="<%= whisper.message %>">✏️</button>
+                        <button class="delete-btn" data-id="<%= whisper.id %>">❌</button>
+                    </div>
+                </article>
+                <% }); %>
+        </div>
     </main>
+
+    <script src="/app.js"></script>
 </body>
 
 </html>
